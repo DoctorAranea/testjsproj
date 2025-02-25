@@ -57,9 +57,9 @@
 
       function sendBackMessage(message) {
 			  if (unityInstance1 == null)
-          return;
-        console.log("Sending message to Unity: " + message);
-			  unityInstance.SendMessage("TestScript", "ReceiveMessage", message);
+				  return;
+			  console.log("Sending message to Unity: " + message);
+			  unityInstance1.SendMessage("TestScript", "ReceiveMessage", message);
 		  }
 
       // Event listener for when a message
