@@ -53,8 +53,12 @@
           socket.send('Connection#id:' + id + '?' + 'username:' + username + '\f')
       };
 
+      let unityInstance1;
+
       function sendBackMessage(message) {
-			  console.log("Sending message to Unity: " + message);
+			  if (unityInstance1 == null)
+          return;
+        console.log("Sending message to Unity: " + message);
 			  unityInstance.SendMessage("TestScript", "ReceiveMessage", message);
 		  }
 
@@ -197,8 +201,9 @@
         createUnityInstance(canvas, config, (progress) => {
           document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                document.querySelector("#unity-loading-bar").style.display = "none";
-                document.querySelector("#unity-fullscreen-button").onclick = () => {
+                  document.querySelector("#unity-loading-bar").style.display = "none";
+                  document.querySelector("#unity-fullscreen-button").onclick = () => {
+                  unityInstance1 = unityInstance;
                   unityInstance.SetFullscreen(1);
                 };
 
