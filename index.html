@@ -59,7 +59,7 @@
 			  if (unityInstance1 == null)
 				  return;
 			  console.log("Sending message to Unity: " + message);
-			  unityInstance1.SendMessage("TestScript", "ReceiveMessage", message);
+			  unityInstance1.SendMessage("MessageReceiver", "ReceiveMessage", message);
 		  }
 
       // Event listener for when a message
